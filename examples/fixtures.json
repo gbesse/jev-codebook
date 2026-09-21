@@ -1,0 +1,326 @@
+{
+ "_comment": "Synthetic probabilities for the offline demo and tests; not measured Jev output. Keys are exact response texts.",
+ "default_probability": 0.05,
+ "responses": {
+  "The light is warm and even, no flicker at all when I read at night.": {
+   "light_quality": 0.95,
+   "price_concern": 0.04,
+   "setup_difficulty": 0.12,
+   "feature_request": 0.03,
+   "durability_issue": 0.11,
+   "support_experience": 0.08
+  },
+  "Way too expensive for what it is. A lamp should not cost this much.": {
+   "light_quality": 0.03,
+   "price_concern": 0.93,
+   "setup_difficulty": 0.03,
+   "feature_request": 0.09,
+   "durability_issue": 0.03,
+   "support_experience": 0.03
+  },
+  "Took me an hour to pair the app with the lamp, the instructions are useless.": {
+   "light_quality": 0.09,
+   "price_concern": 0.15,
+   "setup_difficulty": 0.91,
+   "feature_request": 0.06,
+   "durability_issue": 0.12,
+   "support_experience": 0.17
+  },
+  "Would love a timer so it switches off by itself after an hour.": {
+   "light_quality": 0.11,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.18,
+   "feature_request": 0.92,
+   "durability_issue": 0.16,
+   "support_experience": 0.07
+  },
+  "The hinge loosened after three weeks and now the head droops.": {
+   "light_quality": 0.04,
+   "price_concern": 0.04,
+   "setup_difficulty": 0.07,
+   "feature_request": 0.15,
+   "durability_issue": 0.94,
+   "support_experience": 0.11
+  },
+  "Support replied within a day and sent a replacement base, great experience.": {
+   "light_quality": 0.12,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.11,
+   "feature_request": 0.03,
+   "durability_issue": 0.03,
+   "support_experience": 0.96
+  },
+  "Bright, adjustable, and the color temperature settings are exactly what I wanted. Pricey though.": {
+   "light_quality": 0.9,
+   "price_concern": 0.72,
+   "setup_difficulty": 0.07,
+   "feature_request": 0.11,
+   "durability_issue": 0.09,
+   "support_experience": 0.07
+  },
+  "Assembly was fine but the app kept crashing during setup.": {
+   "light_quality": 0.15,
+   "price_concern": 0.13,
+   "setup_difficulty": 0.86,
+   "feature_request": 0.11,
+   "durability_issue": 0.1,
+   "support_experience": 0.16
+  },
+  "It would be nice if it had a USB-C port on the base to charge my phone.": {
+   "light_quality": 0.14,
+   "price_concern": 0.07,
+   "setup_difficulty": 0.18,
+   "feature_request": 0.9,
+   "durability_issue": 0.09,
+   "support_experience": 0.14
+  },
+  "Nice lamp. Nothing else to say.": {
+   "light_quality": 0.04,
+   "price_concern": 0.1,
+   "setup_difficulty": 0.03,
+   "feature_request": 0.13,
+   "durability_issue": 0.14,
+   "support_experience": 0.11
+  },
+  "The arm wobbles every time I touch the desk, feels flimsy.": {
+   "light_quality": 0.16,
+   "price_concern": 0.07,
+   "setup_difficulty": 0.13,
+   "feature_request": 0.12,
+   "durability_issue": 0.83,
+   "support_experience": 0.09
+  },
+  "I emailed support twice about the flickering and never heard back.": {
+   "light_quality": 0.55,
+   "price_concern": 0.17,
+   "setup_difficulty": 0.1,
+   "feature_request": 0.13,
+   "durability_issue": 0.42,
+   "support_experience": 0.9
+  },
+  "For the price I expected metal, not plastic. Light itself is fine.": {
+   "light_quality": 0.5,
+   "price_concern": 0.85,
+   "setup_difficulty": 0.15,
+   "feature_request": 0.07,
+   "durability_issue": 0.08,
+   "support_experience": 0.13
+  },
+  "Setup took two minutes, plug and play.": {
+   "light_quality": 0.02,
+   "price_concern": 0.09,
+   "setup_difficulty": 0.12,
+   "feature_request": 0.04,
+   "durability_issue": 0.03,
+   "support_experience": 0.14
+  },
+  "Please add a night mode with a deeper red tint.": {
+   "light_quality": 0.45,
+   "price_concern": 0.06,
+   "setup_difficulty": 0.08,
+   "feature_request": 0.88,
+   "durability_issue": 0.03,
+   "support_experience": 0.09
+  },
+  "The dimmer is smooth and the lowest setting is genuinely dim, which is rare.": {
+   "light_quality": 0.9,
+   "price_concern": 0.16,
+   "setup_difficulty": 0.15,
+   "feature_request": 0.16,
+   "durability_issue": 0.06,
+   "support_experience": 0.09
+  },
+  "I got it on sale, at full price I would not have bought it.": {
+   "light_quality": 0.08,
+   "price_concern": 0.78,
+   "setup_difficulty": 0.17,
+   "feature_request": 0.04,
+   "durability_issue": 0.05,
+   "support_experience": 0.06
+  },
+  "The base cracked when I tightened the clamp. Support sent a new one without fuss.": {
+   "light_quality": 0.06,
+   "price_concern": 0.1,
+   "setup_difficulty": 0.11,
+   "feature_request": 0.06,
+   "durability_issue": 0.9,
+   "support_experience": 0.88
+  },
+  "Pairing failed until I reset the lamp three times.": {
+   "light_quality": 0.08,
+   "price_concern": 0.11,
+   "setup_difficulty": 0.8,
+   "feature_request": 0.13,
+   "durability_issue": 0.1,
+   "support_experience": 0.12
+  },
+  "Solid build, warm light, fair price.": {
+   "light_quality": 0.82,
+   "price_concern": 0.1,
+   "setup_difficulty": 0.16,
+   "feature_request": 0.14,
+   "durability_issue": 0.16,
+   "support_experience": 0.15
+  },
+  "I wish the app let me schedule different brightness for morning and evening.": {
+   "light_quality": 0.08,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.04,
+   "feature_request": 0.9,
+   "durability_issue": 0.03,
+   "support_experience": 0.03
+  },
+  "Light is too cold even on the warmest setting.": {
+   "light_quality": 0.87,
+   "price_concern": 0.05,
+   "setup_difficulty": 0.07,
+   "feature_request": 0.03,
+   "durability_issue": 0.02,
+   "support_experience": 0.04
+  },
+  "The customer service chat bot could not understand my question and there was no human option.": {
+   "light_quality": 0.04,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.02,
+   "feature_request": 0.16,
+   "durability_issue": 0.12,
+   "support_experience": 0.85
+  },
+  "Great lamp but costs twice what my old one did.": {
+   "light_quality": 0.35,
+   "price_concern": 0.74,
+   "setup_difficulty": 0.08,
+   "feature_request": 0.04,
+   "durability_issue": 0.16,
+   "support_experience": 0.18
+  },
+  "The touch buttons stopped responding after a month.": {
+   "light_quality": 0.09,
+   "price_concern": 0.1,
+   "setup_difficulty": 0.03,
+   "feature_request": 0.04,
+   "durability_issue": 0.85,
+   "support_experience": 0.06
+  },
+  "Shipping was fast.": {
+   "light_quality": 0.15,
+   "price_concern": 0.05,
+   "setup_difficulty": 0.02,
+   "feature_request": 0.17,
+   "durability_issue": 0.1,
+   "support_experience": 0.04
+  },
+  "Instructions were clear and the clamp fit my desk right away.": {
+   "light_quality": 0.11,
+   "price_concern": 0.02,
+   "setup_difficulty": 0.1,
+   "feature_request": 0.18,
+   "durability_issue": 0.16,
+   "support_experience": 0.13
+  },
+  "Add a physical remote, not everyone wants to use their phone to turn on a lamp.": {
+   "light_quality": 0.06,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.05,
+   "feature_request": 0.9,
+   "durability_issue": 0.11,
+   "support_experience": 0.14
+  },
+  "It flickers when the dimmer is below thirty percent.": {
+   "light_quality": 0.8,
+   "price_concern": 0.06,
+   "setup_difficulty": 0.15,
+   "feature_request": 0.18,
+   "durability_issue": 0.48,
+   "support_experience": 0.15
+  },
+  "Honestly worth every cent, I use it eight hours a day.": {
+   "light_quality": 0.3,
+   "price_concern": 0.38,
+   "setup_difficulty": 0.06,
+   "feature_request": 0.1,
+   "durability_issue": 0.08,
+   "support_experience": 0.02
+  },
+  "Two of the screws were missing from the box, had to find my own.": {
+   "light_quality": 0.02,
+   "price_concern": 0.06,
+   "setup_difficulty": 0.75,
+   "feature_request": 0.13,
+   "durability_issue": 0.17,
+   "support_experience": 0.15
+  },
+  "The refund process was painless once I reached a person.": {
+   "light_quality": 0.17,
+   "price_concern": 0.18,
+   "setup_difficulty": 0.17,
+   "feature_request": 0.08,
+   "durability_issue": 0.06,
+   "support_experience": 0.83
+  },
+  "A little pricey, but the light quality justifies it for me.": {
+   "light_quality": 0.8,
+   "price_concern": 0.6,
+   "setup_difficulty": 0.12,
+   "feature_request": 0.16,
+   "durability_issue": 0.15,
+   "support_experience": 0.1
+  },
+  "The paint is peeling off the arm after two months.": {
+   "light_quality": 0.12,
+   "price_concern": 0.15,
+   "setup_difficulty": 0.03,
+   "feature_request": 0.13,
+   "durability_issue": 0.88,
+   "support_experience": 0.15
+  },
+  "Could you make a version with a battery so I can move it around?": {
+   "light_quality": 0.14,
+   "price_concern": 0.1,
+   "setup_difficulty": 0.05,
+   "feature_request": 0.86,
+   "durability_issue": 0.07,
+   "support_experience": 0.15
+  },
+  "Bought two, one arrived with a dead LED panel. Waiting on support.": {
+   "light_quality": 0.18,
+   "price_concern": 0.08,
+   "setup_difficulty": 0.08,
+   "feature_request": 0.17,
+   "durability_issue": 0.7,
+   "support_experience": 0.62
+  },
+  "Light spreads evenly across the whole desk, no hotspots.": {
+   "light_quality": 0.93,
+   "price_concern": 0.04,
+   "setup_difficulty": 0.16,
+   "feature_request": 0.15,
+   "durability_issue": 0.04,
+   "support_experience": 0.15
+  },
+  "The app needs an account just to change brightness, that is absurd.": {
+   "light_quality": 0.18,
+   "price_concern": 0.13,
+   "setup_difficulty": 0.55,
+   "feature_request": 0.5,
+   "durability_issue": 0.04,
+   "support_experience": 0.02
+  },
+  "Nothing wrong with it, just not sure it was worth the money.": {
+   "light_quality": 0.18,
+   "price_concern": 0.66,
+   "setup_difficulty": 0.1,
+   "feature_request": 0.17,
+   "durability_issue": 0.09,
+   "support_experience": 0.16
+  },
+  "Perfect for my drafting table, the arm reaches everywhere and the light never glares.": {
+   "light_quality": 0.84,
+   "price_concern": 0.05,
+   "setup_difficulty": 0.06,
+   "feature_request": 0.07,
+   "durability_issue": 0.06,
+   "support_experience": 0.11
+  }
+ }
+}

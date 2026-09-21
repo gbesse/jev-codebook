@@ -1,0 +1,31 @@
+# Purpose: Package metadata for jev-codebook; stdlib-only at runtime, console script `jev-codebook`.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jev-codebook"
+version = "0.1.0"
+description = "Qualitative coding at scale with Jev: apply a codebook to open text, get per-code probabilities, review queues, frequency tables and inter-rater reliability."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Guillaume Besse" }]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.13",
+  "Intended Audience :: Science/Research",
+]
+
+[project.scripts]
+jev-codebook = "jev_codebook.cli:main"
+
+[project.urls]
+Repository = "https://github.com/gbesse/jev-codebook"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jev_codebook*"]

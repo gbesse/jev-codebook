@@ -1,0 +1,58 @@
+{
+  "_comment": "Example codebook for open-ended feedback about the Orbit desk lamp, a fictional product by the fictional brand Halden. Thresholds are illustrative defaults, not calibrated values.",
+  "name": "orbit-lamp-feedback",
+  "version": "1.0",
+  "language": "en",
+  "mode": "multi",
+  "review_band": [0.4, 0.7],
+  "codes": [
+    {
+      "id": "light_quality",
+      "label": "Light quality",
+      "definition": "The response comments on the quality of the light itself: brightness, evenness, color temperature, dimming range or flicker.",
+      "include_examples": ["The light is warm and even.", "It flickers at low brightness."],
+      "exclude_examples": ["The box arrived damaged.", "The app is slow."],
+      "threshold": 0.7
+    },
+    {
+      "id": "price_concern",
+      "label": "Price concern",
+      "definition": "The response says the lamp is expensive, overpriced or questions whether it is worth the money.",
+      "include_examples": ["Too expensive for a lamp.", "Not sure it was worth the money."],
+      "exclude_examples": ["Worth every cent.", "Shipping was fast."],
+      "threshold": 0.7
+    },
+    {
+      "id": "setup_difficulty",
+      "label": "Setup difficulty",
+      "definition": "The response describes trouble assembling the lamp, mounting it, or pairing it with the app.",
+      "include_examples": ["Pairing failed three times.", "Screws were missing from the box."],
+      "exclude_examples": ["Setup took two minutes.", "The light is too cold."],
+      "threshold": 0.7
+    },
+    {
+      "id": "feature_request",
+      "label": "Feature request",
+      "definition": "The response asks for a feature or capability the lamp does not have.",
+      "include_examples": ["Please add a timer.", "It should have a USB port on the base."],
+      "exclude_examples": ["The timer works well.", "The hinge is loose."],
+      "threshold": 0.7
+    },
+    {
+      "id": "durability_issue",
+      "label": "Durability issue",
+      "definition": "The response reports a part that broke, loosened, cracked, peeled or stopped working.",
+      "include_examples": ["The hinge loosened after three weeks.", "The base cracked."],
+      "exclude_examples": ["Solid build.", "The app needs an account."],
+      "threshold": 0.7
+    },
+    {
+      "id": "support_experience",
+      "label": "Support experience",
+      "definition": "The response describes contact with customer support or the refund or replacement process, whether positive or negative.",
+      "include_examples": ["Support sent a replacement within a day.", "I emailed support twice and never heard back."],
+      "exclude_examples": ["The light is bright.", "Too expensive."],
+      "threshold": 0.7
+    }
+  ]
+}

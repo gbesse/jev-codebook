@@ -1,0 +1,16 @@
+# Purpose: Keep caches, virtualenvs, build output, local data and secrets out of the repository.
+node_modules/
+.local/
+local-data/
+*.sqlite*
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.egg-info/
+.jev-cache*
+.env
+.env.*
+.DS_Store
+.pytest_cache/
