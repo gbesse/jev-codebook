@@ -1,0 +1,19 @@
+{
+  "responses": {
+    "The app crashes when I open the dashboard.": {
+      "code": {"bug": 0.91, "feature": 0.03, "billing": 0.02, "none_of_these": 0.04}
+    },
+    "Please add a CSV export button.": {
+      "code": {"bug": 0.03, "feature": 0.88, "billing": 0.03, "none_of_these": 0.06}
+    },
+    "My invoice lists the wrong amount.": {
+      "code": {"bug": 0.08, "feature": 0.02, "billing": 0.81, "none_of_these": 0.09}
+    },
+    "The dashboard is confusing and I may need a new filter.": {
+      "code": {"bug": 0.25, "feature": 0.55, "billing": 0.05, "none_of_these": 0.15}
+    },
+    "Thanks for the quick help.": {
+      "code": {"bug": 0.03, "feature": 0.04, "billing": 0.04, "none_of_these": 0.89}
+    }
+  }
+}

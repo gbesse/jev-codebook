@@ -1,0 +1,33 @@
+{
+  "name": "fictional-support-triage",
+  "version": "1.0",
+  "language": "en",
+  "mode": "single",
+  "review_band": [0.4, 0.7],
+  "codes": [
+    {
+      "id": "bug",
+      "label": "Bug report",
+      "definition": "The message reports a broken or incorrect behavior in the product.",
+      "include_examples": ["The app crashes when I open the dashboard."],
+      "exclude_examples": ["Please add a CSV export button."],
+      "threshold": 0.7
+    },
+    {
+      "id": "feature",
+      "label": "Feature request",
+      "definition": "The message asks for a product capability that does not exist yet.",
+      "include_examples": ["Please add a CSV export button."],
+      "exclude_examples": ["The current export button fails."],
+      "threshold": 0.7
+    },
+    {
+      "id": "billing",
+      "label": "Billing question",
+      "definition": "The message asks about an invoice, payment or charge.",
+      "include_examples": ["My invoice lists the wrong amount."],
+      "exclude_examples": ["The dashboard is slow."],
+      "threshold": 0.7
+    }
+  ]
+}
