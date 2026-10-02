@@ -16,6 +16,8 @@ python -m examples.offline_demo
 
 The demo codes 40 synthetic responses about a fictional desk lamp with a 6-code codebook, using a fake provider whose probabilities come from `examples/fixtures.json`. It prints the coded table, the review queue, the agreement table against a synthetic "human" file and a threshold tuning pass. **All numbers in the demo are synthetic; they show the mechanics, not Jev's accuracy.**
 
+To see **single-label triage with an explicit abstain and review path**, run `python -m examples.single_mode_demo`. Its five fictional support messages, codebook and probabilities are in `examples/support_*`. The example prints the chosen category, assigned category and review decision separately; the probabilities are synthetic and require no key.
+
 The same flow through the CLI:
 
 ```sh
