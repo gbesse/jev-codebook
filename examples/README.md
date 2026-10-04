@@ -1,4 +1,6 @@
-Synthetic example dataset for the offline demo and tests. Nothing here is real customer data.
+Synthetic example datasets for the offline demos and tests. Nothing here is real customer data.
+
+**Start here / Commencez ici / Empieza aquí:** run `python3 -m examples.single_mode_demo` from the repository root. The five support messages show assignment, human review and abstention without a key or network access. / Les cinq messages d’assistance montrent l’attribution, la revue humaine et l’abstention sans clé ni accès réseau. / Los cinco mensajes de soporte muestran asignación, revisión humana y abstención sin clave ni acceso a la red.
 
 - `codebook.json`: 6-code multi-mode codebook for feedback about the "Orbit" desk lamp by the fictional brand Halden; thresholds are illustrative.
 - `responses.csv`: 41 rows (`id,text,channel`): 40 synthetic responses plus one blank row (`r41`) to show that blank texts are skipped. The `channel` column is ignored by the tool.
