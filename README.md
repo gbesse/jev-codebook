@@ -6,17 +6,30 @@
 
 Jev (TypeSafe AI's "System One" model) does not generate text: you send a state and typed questions, it returns probabilities. That fits qualitative coding well: each code becomes one yes/no question with your definition and examples as criteria, and every decision (assign, review, ignore) stays in code with thresholds you can tune on your own labeled data. Runtime is Python 3.11+ standard library only.
 
-## Quick start (offline, 30 seconds, no key)
+## Try it in 30 seconds · Essai en 30 secondes · Pruébalo en 30 segundos
 
 ```sh
 git clone https://github.com/gbesse/jev-codebook.git
 cd jev-codebook
-python -m examples.offline_demo
+python3 -m examples.single_mode_demo
 ```
 
-The demo codes 40 synthetic responses about a fictional desk lamp with a 6-code codebook, using a fake provider whose probabilities come from `examples/fixtures.json`. It prints the coded table, the review queue, the agreement table against a synthetic "human" file and a threshold tuning pass. **All numbers in the demo are synthetic; they show the mechanics, not Jev's accuracy.**
+**EN:** Five fictional support messages show a bug, a feature request, a billing question, an uncertain message sent to human review, and an explicit `none_of_these` abstention. The demo needs no package installation or API key and makes no network request after cloning. The probabilities are synthetic fixtures, not measured Jev output.
 
-To see **single-label triage with an explicit abstain and review path**, run `python -m examples.single_mode_demo`. Its five fictional support messages, codebook and probabilities are in `examples/support_*`. The example prints the chosen category, assigned category and review decision separately; the probabilities are synthetic and require no key.
+**FR :** Cinq messages fictifs montrent un bug, une demande de fonctionnalité, une question de facturation, un cas incertain transmis à un humain et une abstention explicite `none_of_these`. La démo ne nécessite ni installation du paquet ni clé API et ne fait aucune requête réseau après le clonage. Les probabilités sont fictives et ne mesurent pas Jev.
+
+**ES:** Cinco mensajes ficticios muestran un fallo, una solicitud de función, una pregunta de facturación, un caso incierto enviado a revisión humana y una abstención explícita `none_of_these`. La demo no requiere instalar el paquete ni usar una clave API y no hace solicitudes de red después de clonar. Las probabilidades son datos de ejemplo, no mediciones de Jev.
+
+```text
+id  chosen          assigned        review
+s1  bug             bug             no
+s2  feature         feature         no
+s3  billing         billing         no
+s4  feature         none            yes
+s5  none_of_these   none            no
+```
+
+The [five messages](examples/support_responses.csv), [codebook](examples/support_codebook.json) and [probability fixtures](examples/support_fixtures.json) are readable files. For the full 40-response workflow, including the review queue, agreement against synthetic human labels and threshold tuning, run `python3 -m examples.offline_demo`. All figures in both demos are synthetic and illustrate mechanics, not accuracy.
 
 The same flow through the CLI:
 
