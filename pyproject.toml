@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jev-codebook"
-version = "0.1.1"
+version = "0.1.2"
 description = "Qualitative coding at scale with Jev: apply a codebook to open text, get per-code probabilities, review queues, frequency tables and inter-rater reliability."
 readme = "README.md"
 requires-python = ">=3.11"
