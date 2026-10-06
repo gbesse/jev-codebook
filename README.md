@@ -1,5 +1,9 @@
 # jev-codebook
 
+## Export a review queue · Exporter une file de revue · Exportar una cola de revisión
+
+Run `python3 -m examples.review_export` to get a CSV of uncertain messages from the synthetic support fixture. The top candidate and probability are hints for a person, not an automatic label. / Exécutez cette commande pour obtenir un CSV des messages synthétiques incertains ; le meilleur candidat reste une aide à la revue, pas une étiquette automatique. / Ejecute este comando para obtener un CSV de mensajes sintéticos inciertos; el candidato principal ayuda a la revisión, no es una etiqueta automática.
+
 **Apply a qualitative codebook to open-ended survey answers, reviews or interview excerpts with Jev, and get per-code probabilities, a review queue, frequency tables with confidence intervals and inter-rater reliability against your human coders.**
 
 [![Tests](https://github.com/gbesse/jev-codebook/actions/workflows/test.yml/badge.svg)](https://github.com/gbesse/jev-codebook/actions/workflows/test.yml) ![MIT](https://img.shields.io/badge/license-MIT-blue) ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue) ![Public alpha](https://img.shields.io/badge/status-public%20alpha-orange)
