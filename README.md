@@ -143,3 +143,7 @@ Opt-in live check (2 paid requests with one synthetic sentence, only when the ke
 - [Autonomy Meter](https://github.com/gbesse/autonomy-meter): measuring how much of a decision pipeline can run without review.
 
 Independent project; not affiliated with TypeSafe AI. API reference: https://docs.typesafe.ai/api. Model notes: https://docs.typesafe.ai/model-jaggedness/jev-1.13.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Français : essayer un cas concret](examples/adoption-check.md) · [English: try a concrete case](examples/adoption-check.md) · [Español: pruebe un caso concreto](examples/adoption-check.md).
