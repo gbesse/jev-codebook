@@ -40,3 +40,15 @@ FR : adaptez une copie de la fixture locale à cette situation, puis vérifiez l
 EN: adapt a copy of the local fixture to this situation, then check the behavior described above. Values are illustrative, not measured Jev output.
 
 ES: adapte una copia de la fixture local a esta situación y compruebe el comportamiento descrito arriba. Los valores son ilustrativos, no resultados Jev medidos.
+
+## Second cas · Second case · Segundo caso
+
+```text
+top_code=none_of_these; next_probability=0.28
+```
+
+**FR :** Une réponse hors du codebook doit pouvoir s’abstenir explicitement. Ne forcez pas l’étiquette la plus proche pour remplir une fréquence.
+
+**EN:** An answer outside the codebook should be able to abstain explicitly. Do not force the nearest label to fill a frequency table.
+
+**ES:** Una respuesta fuera del libro de códigos debe poder abstenerse explícitamente. No fuerce la etiqueta más cercana para completar una tabla de frecuencias.
