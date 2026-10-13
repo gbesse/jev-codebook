@@ -283,15 +283,17 @@ def main(argv=None):
             if reader.fieldnames is None:
                 raise ReviewError()
             changed = {row.id: row for row in output.records}
+            reviewed_ids = {entry["id"] for entry in audit["changes"]}
             with open(args.out, "w", encoding="utf-8", newline="") as stream:
                 writer = csv.DictWriter(stream, fieldnames=reader.fieldnames)
                 writer.writeheader()
                 for original in reader:
                     row = changed[original["id"].strip()]
-                    for code, assigned in row.assigned.items():
-                        original[code] = str(assigned)
-                    if "review" in original:
-                        original["review"] = str(int(row.review))
+                    if row.id in reviewed_ids:
+                        for code, assigned in row.assigned.items():
+                            original[code] = str(assigned)
+                        if "review" in original:
+                            original["review"] = str(int(row.review))
                     writer.writerow(original)
             args.audit.parent.mkdir(parents=True, exist_ok=True)
             fd = os.open(args.audit, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
