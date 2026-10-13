@@ -157,6 +157,19 @@ class ReviewTests(unittest.TestCase):
                         "User metadata unchanged",
                     ]
                 )
+                writer.writerow(
+                    [
+                        "accepted",
+                        "Original accepted",
+                        "1.0",
+                        "0.0",
+                        ".9000",
+                        ".1000",
+                        "false",
+                        "accepted-request",
+                        "Accepted metadata unchanged",
+                    ]
+                )
             for lang in ("fr", "en", "es"):
                 queue, out, audit = (
                     base / (lang + ".json"),
@@ -202,7 +215,13 @@ class ReviewTests(unittest.TestCase):
                     self.assertEqual(main(args), 0)
                     self.assertEqual(main(args), 1)
                 with out.open(newline="", encoding="utf-8") as stream:
-                    row = next(csv.DictReader(stream))
+                    saved_rows = list(csv.DictReader(stream))
+                    row = saved_rows[0]
+                self.assertEqual(saved_rows[1]["bug"], "1.0")
+                self.assertEqual(saved_rows[1]["review"], "false")
+                self.assertEqual(
+                    saved_rows[1]["user_note"], "Accepted metadata unchanged"
+                )
                 self.assertEqual(row["billing"], "1")
                 self.assertEqual(row["review"], "0")
                 self.assertEqual(row["p_bug"], ".6000")
