@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jev-codebook"
-version = "0.1.2"
+version = "0.2.0"
 description = "Qualitative coding at scale with Jev: apply a codebook to open text, get per-code probabilities, review queues, frequency tables and inter-rater reliability."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -22,6 +22,7 @@ classifiers = [
 
 [project.scripts]
 jev-codebook = "jev_codebook.cli:main"
+jev-codebook-review = "jev_codebook.review:main"
 
 [project.urls]
 Repository = "https://github.com/gbesse/jev-codebook"
