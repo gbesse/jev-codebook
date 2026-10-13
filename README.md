@@ -1,5 +1,13 @@
 # jev-codebook
 
+## Revue humaine réimportable · Importable human review · Revisión humana importable
+
+**FR :** `python3 -m examples.review_roundtrip` exporte une ligne synthétique incertaine, applique une annotation humaine simulée et ferme sa revue sans changer le texte ni les probabilités. Pour vos données, `jev-codebook-review export` puis `apply` contrôlent les empreintes de la ligne et du codebook, refusent une revue périmée, conservent les colonnes supplémentaires et produisent un journal séparé. [Guide FR/EN/ES](docs/review-roundtrip.md).
+
+**EN:** `python3 -m examples.review_roundtrip` exports one uncertain synthetic row, applies a simulated human annotation and closes review without changing text or probabilities. For your data, `jev-codebook-review export` then `apply` check row/codebook fingerprints, reject stale review, retain extra columns and produce a separate audit. [FR/EN/ES guide](docs/review-roundtrip.md).
+
+**ES:** `python3 -m examples.review_roundtrip` exporta una fila sintética incierta, aplica una anotación humana simulada y cierra la revisión sin cambiar texto ni probabilidades. Para sus datos, `jev-codebook-review export` y `apply` comprueban huellas de fila/codebook, rechazan revisión caducada, conservan columnas adicionales y generan registro separado. [Guía FR/EN/ES](docs/review-roundtrip.md).
+
 ## Export a review queue · Exporter une file de revue · Exportar una cola de revisión
 
 Run `python3 -m examples.review_export` to get a CSV of uncertain messages from the synthetic support fixture. The top candidate and probability are hints for a person, not an automatic label. / Exécutez cette commande pour obtenir un CSV des messages synthétiques incertains ; le meilleur candidat reste une aide à la revue, pas une étiquette automatique. / Ejecute este comando para obtener un CSV de mensajes sintéticos inciertos; el candidato principal ayuda a la revisión, no es una etiqueta automática.
