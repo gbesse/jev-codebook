@@ -1,11 +1,11 @@
 # Purpose: Package metadata for jev-codebook; stdlib-only at runtime, console script `jev-codebook`.
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "jev-codebook"
-version = "0.2.0"
+version = "0.2.1"
 description = "Qualitative coding at scale with Jev: apply a codebook to open text, get per-code probabilities, review queues, frequency tables and inter-rater reliability."
 readme = "README.md"
 requires-python = ">=3.11"
