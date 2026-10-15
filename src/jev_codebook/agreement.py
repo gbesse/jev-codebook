@@ -110,9 +110,11 @@ def split_ids(ids: list[str], seed: int = 42, tune_fraction: float = 0.6) -> tup
     """Random split with a fixed seed so two runs on the same file give the same holdout."""
     if not 0 < tune_fraction < 1:
         raise ValueError("tune_fraction must be in (0, 1)")
+    if len(ids) < 2 or len(set(ids)) != len(ids):
+        raise ValueError("Au moins deux ID distincts requis pour tune/holdout / At least two distinct IDs required for tune/holdout / Se requieren al menos dos ID distintos para tune/holdout")
     shuffled = sorted(ids)  # sort first so the split does not depend on file order
     random.Random(seed).shuffle(shuffled)
-    cut = int(round(len(shuffled) * tune_fraction))
+    cut = max(1, min(len(shuffled) - 1, int(round(len(shuffled) * tune_fraction))))
     return shuffled[:cut], shuffled[cut:]
 
 

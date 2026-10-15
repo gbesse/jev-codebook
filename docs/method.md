@@ -49,3 +49,11 @@ Practical sequence: code a pilot of 150-300 responses, have a human code them bl
 - Keep responses reasonably short. Long interview transcripts should be split into excerpts before coding.
 - The model does not count, compare numbers or dates reliably; codes like "mentions more than two problems" belong in code, not in the codebook.
 - Adversarial or instruction-like text inside a response can sway the judgment; the review band is the mitigation.
+
+## Evaluation input preflight / Prévalidation / Validación previa
+
+EN: Coded imports now reject duplicate/empty IDs or headers, nonfinite/out-of-range probabilities and nonbinary assignments. Human per-code columns require explicit yes/no labels; blanks or unknown words are not silently counted as negatives. A blank `codes` list still explicitly means no selected code. Tune/holdout needs at least two distinct IDs and keeps both splits nonempty. These guards prevent malformed inputs from inflating an agreement calculation; tiny or biased samples still cannot establish general quality.
+
+FR : Les imports codés refusent désormais ID/en-têtes dupliqués ou vides, probabilités non finies/hors limites et annotations non binaires. Les colonnes humaines exigent un oui/non explicite ; blancs ou mots inconnus ne deviennent plus des négatifs. Une liste `codes` vide signifie toujours explicitement aucun code. Tune/holdout exige deux ID distincts et garde les deux parties non vides. Ces gardes empêchent une entrée mal formée de fausser l’accord ; un échantillon minuscule ou biaisé ne prouve toujours pas une qualité générale.
+
+ES: Importaciones codificadas rechazan ID/cabeceras duplicados o vacíos, probabilidades no finitas/fuera de rango y anotaciones no binarias. Columnas humanas exigen sí/no explícito; blancos o palabras desconocidas no cuentan como negativos. Una lista `codes` vacía sigue significando ningún código. Tune/holdout exige dos ID distintos y mantiene ambas partes no vacías. Evita cálculos de acuerdo sobre entradas incorrectas; muestras pequeñas o sesgadas no establecen calidad general.

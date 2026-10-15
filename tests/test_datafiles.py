@@ -105,3 +105,19 @@ class HumanLabelTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StrictEvaluationTests(unittest.TestCase):
+    def test_coded_invalid_probability_assignment_and_identity_are_rejected(self):
+        from pathlib import Path
+        for rows in ('one,x,1,nan,0\n','one,x,1,1.1,0\n','one,x,0.5,0.5,0\n','one,x,1,0.9,0\none,x,0,0.1,0\n',',x,1,0.9,0\n'):
+            with tempfile.TemporaryDirectory() as root:
+                path=Path(root)/'coded.csv';path.write_text('id,text,a,p_a,review\n'+rows)
+                with self.assertRaises(DataError):read_coded(path)
+
+    def test_unknown_or_empty_human_labels_are_not_negative(self):
+        from pathlib import Path
+        for value in ('maybe','','2'):
+            with tempfile.TemporaryDirectory() as root:
+                path=Path(root)/'human.csv';path.write_text('id,a\none,'+value+'\n')
+                with self.assertRaises(DataError):read_human_labels(path,['a'])

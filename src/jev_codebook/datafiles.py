@@ -10,6 +10,7 @@ research teams export from very different tools.
 from __future__ import annotations
 
 import csv
+import math
 import json
 import os
 from dataclasses import dataclass, field
@@ -168,15 +169,25 @@ def read_coded(path: str) -> CodedFile:
     missing = [c for c in code_ids if c not in header]
     if not code_ids or missing:
         raise DataError(f"{path}: not a coded CSV (need <code> and p_<code> columns; missing {missing})")
+    if len(header) != len(set(header)) or any(not code for code in code_ids):
+        raise DataError("En-têtes codés dupliqués ou vides / Duplicate or empty coded headers / Cabeceras codificadas duplicadas o vacías")
     records = []
+    seen = set()
     for index, row in enumerate(rows, start=2):
         try:
+            identifier = row.get("id")
+            if not isinstance(identifier, str) or not identifier.strip() or identifier.strip() in seen:
+                raise DataError("ID codés vides ou dupliqués / Empty or duplicate coded IDs / ID codificados vacíos o duplicados")
+            seen.add(identifier.strip())
+            probabilities = {c: float(row[f"p_{c}"]) for c in code_ids}
+            if any(not math.isfinite(value) or not 0 <= value <= 1 for value in probabilities.values()):
+                raise DataError("Probabilités codées invalides / Invalid coded probabilities / Probabilidades codificadas no válidas")
             records.append(
                 CodedRecord(
                     id=str(row["id"]).strip(),
                     text=row.get("text", "") or "",
-                    assigned={c: int(float(row[c])) for c in code_ids},
-                    probabilities={c: float(row[f"p_{c}"]) for c in code_ids},
+                    assigned={c: _binary_label(row[c]) for c in code_ids},
+                    probabilities=probabilities,
                     review=_truthy(row.get(REVIEW_COLUMN, "0")),
                     request_id=row.get(REQUEST_COLUMN, "") or "",
                 )
@@ -206,9 +217,18 @@ def read_human_labels(path: str, code_ids: list[str]) -> dict[str, dict[str, int
             missing = [c for c in code_ids if c not in row]
             if missing:
                 raise DataError(f"{path}: missing label columns {missing} (or a 'codes' column)")
-            labels[rid] = {c: int(_truthy(row[c])) for c in code_ids}
+            labels[rid] = {c: _binary_label(row[c]) for c in code_ids}
     return labels
 
 
 def _truthy(value: Any) -> bool:
     return str(value).strip().lower() in {"1", "true", "yes", "y", "x"}
+
+
+def _binary_label(value: Any) -> int:
+    normalized = str(value).strip().lower()
+    if normalized in {"1", "1.0", "true", "yes", "y", "x"}:
+        return 1
+    if normalized in {"0", "0.0", "false", "no", "n"}:
+        return 0
+    raise DataError("Label binaire explicite requis / Explicit binary label required / Se requiere etiqueta binaria explícita")

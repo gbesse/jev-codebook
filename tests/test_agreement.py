@@ -84,3 +84,12 @@ class TuneTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SplitValidityTests(unittest.TestCase):
+    def test_tiny_or_duplicate_splits_cannot_claim_holdout(self):
+        for ids in ([],['one'],['one','one']):
+            with self.assertRaises(ValueError):split_ids(ids)
+        for fraction in (.01,.99):
+            tune,holdout=split_ids(['one','two'],tune_fraction=fraction)
+            self.assertEqual(len(tune),1);self.assertEqual(len(holdout),1)
