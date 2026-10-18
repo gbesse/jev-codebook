@@ -8,8 +8,10 @@ made here, in code, from documented thresholds, so a researcher can re-run
 
 from __future__ import annotations
 
-from concurrent.futures import FIRST_EXCEPTION, ThreadPoolExecutor, wait
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from dataclasses import dataclass, field
+from copy import deepcopy
+from threading import Event
 from typing import Any, Callable, Protocol
 
 from .cache import ExactInputCache
@@ -124,32 +126,64 @@ def code_responses(
     ``on_row`` runs on the calling thread as rows complete, so a CSV writer
     or progress printer needs no locking. Rows are returned in input order.
     """
-    if concurrency < 1:
-        raise ValueError("concurrency must be >= 1")
+    if isinstance(concurrency, bool) or not isinstance(concurrency, int) or not 1 <= concurrency <= 64:
+        raise ValueError("Concurrence 1–64 requise / Concurrency must be 1–64 / Concurrencia requerida: 1–64")
+    responses = deepcopy(list(responses))
+    ids = [r.id for r in responses]
+    if any(not isinstance(value, str) or not value.strip() for value in ids) or len(set(ids)) != len(ids):
+        raise ValueError("Identifiants uniques requis / Unique response IDs required / Identificadores únicos requeridos")
+    codebook = deepcopy(codebook)
     summary = CodingSummary()
     done_rows: dict[str, CodedRow] = {}
-    futures: dict = {}
+    stop = Event()
+    remaining = iter(responses)
+    futures = {}
+    def work(response):
+        if stop.is_set():
+            return None
+        try:
+            return code_one(response, codebook, provider, cache, max_codes_per_request)
+        except BaseException:
+            stop.set()
+            raise
     try:
         with ThreadPoolExecutor(max_workers=concurrency) as pool:
-            futures = {pool.submit(code_one, r, codebook, provider, cache, max_codes_per_request): r for r in responses}
-            pending = set(futures)
-            while pending:
-                finished, pending = wait(pending, return_when=FIRST_EXCEPTION)
-                for fut in finished:
-                    row = fut.result()  # re-raises the worker's exception
-                    done_rows[row.id] = row
-                    summary.live_requests += row.live_requests
-                    summary.cached_requests += row.cached_requests
-                    summary.input_tokens += row.input_tokens
-                    if on_row is not None:
-                        on_row(row)
-    except BaseException:
-        for fut in futures:
-            fut.cancel()
-        raise
+            try:
+                for response in remaining:
+                    futures[pool.submit(work, response)] = response
+                    if len(futures) >= concurrency:
+                        break
+                while futures:
+                    finished, _ = wait(futures, return_when=FIRST_COMPLETED)
+                    # Discover failures before callbacks or admission of any successor.
+                    for future in finished:
+                        if future.exception() is not None:
+                            future.result()
+                    for future in finished:
+                        futures.pop(future)
+                        row = future.result()
+                        if row is None:
+                            continue
+                        done_rows[row.id] = row
+                        summary.live_requests += row.live_requests
+                        summary.cached_requests += row.cached_requests
+                        summary.input_tokens += row.input_tokens
+                        if on_row is not None:
+                            on_row(row)
+                    while not stop.is_set() and len(futures) < concurrency:
+                        response = next(remaining, None)
+                        if response is None:
+                            break
+                        futures[pool.submit(work, response)] = response
+            except BaseException:
+                stop.set()
+                for future in futures:
+                    future.cancel()
+                raise
     finally:
         if cache is not None:
             cache.save()
+
     summary.rows = [done_rows[r.id] for r in responses if r.id in done_rows]
     return summary
 

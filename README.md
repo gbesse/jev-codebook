@@ -155,3 +155,10 @@ Independent project; not affiliated with TypeSafe AI. API reference: https://doc
 ## Contrôle d’adoption · Adoption check · Comprobación de adopción
 
 [Français : essayer un cas concret](examples/adoption-check.md) · [English: try a concrete case](examples/adoption-check.md) · [Español: pruebe un caso concreto](examples/adoption-check.md).
+
+
+FR : Le moteur n’admet qu’un nombre de lignes égal à la concurrence configurée (entier 1–64), au lieu de mettre tout le corpus en file. Après un échec, aucune ligne en attente n’est admise ; les lignes déjà en cours peuvent terminer leurs appels et le pool attend leur fin. Les réponses et le codebook sont copiés avant exécution ; identifiants vides ou dupliqués sont refusés avant appel. Ces contrôles ne mesurent pas la qualité du codage humain ou du modèle.
+
+EN: The engine admits only as many rows as configured concurrency (integer 1–64), instead of queueing the whole corpus. After a failure no pending row is admitted; already-running rows may finish their calls and the pool waits for them. Responses and codebook are copied before execution; empty or duplicate IDs are rejected before calls. These checks do not measure human or model coding quality.
+
+ES: El motor admite solo tantas filas como la concurrencia configurada (entero 1–64), en lugar de encolar todo el corpus. Tras un fallo no admite filas pendientes; filas iniciadas pueden terminar sus llamadas y el pool espera su fin. Respuestas y codebook se copian antes de ejecutar; rechaza identificadores vacíos o duplicados antes de llamar. No mide calidad de codificación humana o del modelo.
