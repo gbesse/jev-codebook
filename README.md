@@ -162,3 +162,12 @@ FR : Le moteur n’admet qu’un nombre de lignes égal à la concurrence config
 EN: The engine admits only as many rows as configured concurrency (integer 1–64), instead of queueing the whole corpus. After a failure no pending row is admitted; already-running rows may finish their calls and the pool waits for them. Responses and codebook are copied before execution; empty or duplicate IDs are rejected before calls. These checks do not measure human or model coding quality.
 
 ES: El motor admite solo tantas filas como la concurrencia configurada (entero 1–64), en lugar de encolar todo el corpus. Tras un fallo no admite filas pendientes; filas iniciadas pueden terminar sus llamadas y el pool espera su fin. Respuestas y codebook se copian antes de ejecutar; rechaza identificadores vacíos o duplicados antes de llamar. No mide calidad de codificación humana o del modelo.
+
+
+## 2026-11-05 — FR / EN / ES
+
+FR : `disagreement_queue(coded,human_labels)` trie les désaccords par réponse, sans confondre code non jugé et code négatif. Les identifiants inconnus sont refusés ; texte des réponses absent du rapport, aucun appel fournisseur.
+
+EN: `disagreement_queue(coded,human_labels)` orders response disagreements without treating unjudged codes as negatives. Unknown IDs rejected; response text omitted from report, no provider calls.
+
+ES: `disagreement_queue(coded,human_labels)` ordena desacuerdos por respuesta sin tratar códigos no juzgados como negativos. Rechaza identificadores desconocidos; omite texto y no llama proveedor.

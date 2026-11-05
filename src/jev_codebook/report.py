@@ -48,3 +48,15 @@ def top_uncertain(coded: CodedFile, thresholds: dict[str, float] | None = None, 
     scored = [(r, uncertainty(r, thresholds)) for r in coded.records]
     scored.sort(key=lambda pair: (pair[1], pair[0].id))
     return scored[:limit]
+
+
+def disagreement_queue(coded, human_labels):
+    error="Jugements humains invalides / Invalid human judgments / Juicios humanos inválidos"
+    if not isinstance(human_labels,dict)or any(k not in coded.ids for k in human_labels):raise ValueError(error)
+    out=[]
+    for record in coded.records:
+        labels=human_labels.get(record.id,{})
+        if not isinstance(labels,dict)or any(k not in coded.code_ids or type(v)is not int or v not in [0,1]for k,v in labels.items()):raise ValueError(error)
+        disagreements=[c for c,v in labels.items()if record.assigned.get(c,0)!=v];missing=[c for c in coded.code_ids if c not in labels]
+        out.append({'id':record.id,'disagreements':sorted(disagreements),'unjudged_codes':missing,'human_codes_compared':len(labels)})
+    return sorted(out,key=lambda r:(-len(r['disagreements']),r['id']))
