@@ -171,3 +171,12 @@ FR : `disagreement_queue(coded,human_labels)` trie les désaccords par réponse,
 EN: `disagreement_queue(coded,human_labels)` orders response disagreements without treating unjudged codes as negatives. Unknown IDs rejected; response text omitted from report, no provider calls.
 
 ES: `disagreement_queue(coded,human_labels)` ordena desacuerdos por respuesta sin tratar códigos no juzgados como negativos. Rechaza identificadores desconocidos; omite texto y no llama proveedor.
+
+
+## 2026-11-12 — FR / EN / ES
+
+FR : Borner les fréquences d’affectation des codes en conservant les revues en attente comme inconnues.
+
+EN: Bound code-assignment frequencies while keeping pending reviews unknown.
+
+ES: Acotar frecuencias de asignación de códigos conservando revisiones pendientes como desconocidas.
